@@ -32,7 +32,18 @@ class _ProfileState extends State<Profile> {
         bottomNavigationBar: const Bottomnavbar(),
         body: Center(
           child: _token == null
-              ? const Text('Vous n\'êtes pas connecté')
+              ? Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Text('Vous n\'êtes pas connecté'),
+                  ElevatedButton(
+                      onPressed: () {
+                        Navigator.pushNamed(context, '/loginPage');
+                      },
+                      child: const Text('Se Connecter'),
+                    ),
+                ]
+              )
               : Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
